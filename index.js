@@ -14,13 +14,13 @@ client.on('ready', () => {
 });
 
 fs.readdir("./commands/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    let eventFunction = require(`./commands/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, (...args) => eventFunction.run(client, ...args));
-  });
-});
+
+  if(err) console.log(err);
+  let jsfile = files.filter(f => f.split(".").pop() === "js");
+  if(jsfile.length <= 0){
+    console.log("Couldn't find commands.");
+    return;
+  }
 
 client.on('message', async message => {
     // This is an event that will run every messages you sent.
