@@ -13,10 +13,10 @@ client.on('ready', () => {
     // When the bot is ready, in the console it will say "<botuser + tag> has logged in!"
 });
 
-fs.readdir("./events/", (err, files) => {
+fs.readdir("./commands/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    let eventFunction = require(`./events/${file}`);
+    let eventFunction = require(`./commands/${file}`);
     let eventName = file.split(".")[0];
     client.on(eventName, (...args) => eventFunction.run(client, ...args));
   });
