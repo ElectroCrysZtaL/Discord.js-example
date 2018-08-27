@@ -15,7 +15,8 @@ Before we beigin, go to Discord [Developer Page.](https://discordapp.com/develop
 # Running the console.
 Open up command prompt or it can be easily done by using Shift+RightClick in your folder.
 In the console, enter these commands out (In order.)
-```init -y
+```
+   init -y
    npm install discord.js
 ```
 After that we shall be good to go!
